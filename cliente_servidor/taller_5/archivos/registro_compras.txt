@@ -1,0 +1,21 @@
+Sunday 24 de August de 2014 23:32.16
+Galletas,2
+Azucar,4
+cedula: 1234567
+Sunday 24 de August de 2014 23:34.14
+Galletas,5
+choco,80
+Azucar,6
+cedula: 1234
+Sunday 24 de August de 2014 23:35.33
+Galletas,23
+cedula: 2344
+
+Tuesday 26 de August de 2014 18:37.54
+Galletas,2
+cedula: 12345
+
+Tuesday 26 de August de 2014 18:38.22
+Azucar,3
+cedula: 123456789
+

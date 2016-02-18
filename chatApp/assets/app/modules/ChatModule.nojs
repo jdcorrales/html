@@ -1,0 +1,6 @@
+/**
+* Chat Module
+*
+* Description
+*/
+angular.module('ChatModule', []);

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html data-ng-app="accion">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	
+	<div data-ng-controller="controlador1">
+		<h1>Nombres</h1>
+		<ul>
+			<li ng-repeat="nombreIndividual in nombresSimples">
+				{{nombreIndividual}}
+			</li>
+		</ul>
+
+		<h1>H&eacute;roes de Acci&oacute;n</h1>
+		<ul>
+			<li data-ng-repeat = "heroe in heroes">
+				{{heroe.nombre}} {{heroe.apellidos}}
+			</li>
+		</ul>
+
+	</div>
+
+	<script>
+	var miApp = angular.module('accion',[]);
+
+	miApp.controller('controlador1', ['$scope', function ($scope) {		
+		
+		$scope.nombresSimples = ["cindy", "juan", "alberto"];
+
+		$scope.heroes = [
+			{nombre: "Carlos", apellidos: "Sanchez"},
+			{nombre: "Manuela", apellidos: "Isaza"},
+			{nombre: "Muguel", apellidos: "Herrera"}
+		];
+	}]);
+	</script>
+</body>
+</html>

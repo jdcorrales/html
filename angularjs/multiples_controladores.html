@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html data-ng-app="nombreApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<div data-ng-controller="controlador1">
+		nombre: {{nombre}}
+	</div>
+
+	<div data-ng-controller="controlador2">
+		nombre: {{nombre}}
+	</div>
+	<hr>
+
+	<script>
+	var miAplicacion = angular.module('nombreApp',[]);
+
+	miAplicacion.controller('controlador1', ['$scope', function ($scope) {
+		$scope.nombre = "Juan";
+
+	}]);
+
+	miAplicacion.controller('controlador2', ['$scope', function ($scope) {
+		$scope.nombre = "Cindy";
+
+	}]);
+	</script>
+</body>
+</html>

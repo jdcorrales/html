@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html data-ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<div data-ng-controller="controlador1">
+		<img width="500" height="200" data-ng-src="{{imagenActual}}">
+		<br>
+		<button data-ng-click="mostrarImagen('http://vignette2.wikia.nocookie.net/reinoanimalia/images/a/a2/Padres_e_cr%C3%ADa_de_patos.png/revision/latest?cb=20130601181449&path-prefix=es')">Img 1</button>
+		<button data-ng-click="mostrarImagen('http://imagenesdecarrosmodernos.com/wp-content/uploads/2015/09/ver-fotos-de-carros-lujosos-del-mundo-300x169.jpg')">Img 2</button>
+	</div>
+
+	<script>
+	var miApp = angular.module("miApp", []);	
+
+	miApp.controller('controlador1', ['$scope', function ($scope) {
+		
+		$scope.imagenActual = "http://vignette2.wikia.nocookie.net/reinoanimalia/images/a/a2/Padres_e_cr%C3%ADa_de_patos.png/revision/latest?cb=20130601181449&path-prefix=es";
+		
+		$scope.mostrarImagen = function(_imagen){
+			$scope.imagenActual = _imagen;
+
+		}
+	}])
+	</script>
+</body>
+</html>

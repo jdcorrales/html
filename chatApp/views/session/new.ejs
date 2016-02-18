@@ -1,0 +1,18 @@
+<div class="jumbotron col-md-8 col-md-offset-2">
+	<div class="container">
+		<% if (flash && flash.err) { %>
+			<ul class="alert alert-warning">
+			<% Object.keys(flash.err).forEach(function (error) { %>				
+				<li><%- JSON.stringify(flash.err[error]) %></li>
+			<% }); %>		
+			</ul>
+		<% } %>	
+		<h1>Manager Project</h1>
+		<p>Herramientas de administración de proyectos con metodologías agiles SCRUM&PSP</p>
+		<p>
+		<% if (!session.authenticated) { %>
+			<a href="/user/new" class="btn btn-primary btn-lg">Registrese</a>
+		<% } %>
+		</p>
+	</div>
+</div>

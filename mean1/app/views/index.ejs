@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title %></title>
+</head>
+<body>
+	<img src="img/yeoman.png" alt="Logo">	
+	<br>
+	<br>
+	<!--Si un usuario es autentificado, mostrar el nombre completo del usuario, de no ser asi-->
+	<% if (userFullName) { %>
+		<h2>Hola <%= userFullName %></h2>
+		<a href="/signout">Cerrar Sesión</a>
+	<% } else { %>
+		<a href="/signup">Crear cuenta</a>
+		<a href="/signin">Identificarse</a>
+	<% } %>	
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html data-ng-app="css">
+<head>
+	<meta charset="UTF-8">
+	<title>|</title>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+	<style>	
+	div{
+		width: 600px;
+		margin: 10px auto;
+		text-align: center;
+	}
+	.contenedor{
+		border: solid 2px;
+	}
+	.angular{
+		background: red;
+		font-size:  40px;
+		padding: 0 40px;
+		color: #fff;
+	}
+	</style>
+</head>
+<body>
+	<div data-ng-controller="controlador1">
+		<div class="contenedor">
+			<p data-ng-style="estilos">Controlar el estilo de la aplicaci&oacute;n <span data-ng-class="claseEsecial">Angular JS</span></p>				
+		</div>
+		<button data-ng-click="cambiarEstilo()">Cambiar propiedad</button>		
+		<button data-ng-click="cambiarClases()">Cambiar clases</button>
+		<button data-ng-click="reiniciarClases()">Reiniciar clases</button>
+	</div>
+	<script>
+	var miApp = angular.module("css",[]);
+	
+	miApp.controller('controlador1', ['$scope', function ($scope) {
+		
+		$scope.cambiarEstilo = function(){
+			$scope.estilos = {"background" : "blue", "color" : "#ffeb00"}
+		}	
+
+		$scope.cambiarClases = function(){
+			$scope.claseEsecial = "angular";
+		}
+
+		$scope.reiniciarClases = function(){
+			$scope.estilos = "";
+			$scope.claseEsecial = "";
+		}
+	}]);
+	</script>
+</body>
+</html>

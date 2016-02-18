@@ -1,0 +1,9 @@
+<div class="container" data-ng-controller="UserController">
+	<div data-ng-init="getUserId()">
+		<h1>{{user.name}} {{user.last_name}}</h1>
+		<h3>{{user.username}}</h3>
+		<hr>
+		<h3>contacto: {{user.email}}</h3>
+		<a class="btn btn-xs btn-primary" href="/#!/user/edit/{{user.id}}">Editar</a>		
+	</div>
+</div>

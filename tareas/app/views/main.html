@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Mistareas</h2>
+
+    <!--Todos input-->
+    <form role="form" data-ng-submit="addTarea()">
+      <div class="row">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="¿Que tarea quieres guardar?" data-ng-model="tarea">
+          <span class="input-group-btn">
+            <input type="submit" value="Añadir" class="btn btn-primary">
+          </span>
+        </div>
+      </div>
+    </form>
+    <p></p>
+    <!--Todos input close--> 
+
+    <!--Lista Tareas-->
+    <div ui-sortable data-ng-model="tareas">
+      <p class="input-group" data-ng-repeat="tarea in tareas" style="padding: 5px; cursor: move;">
+        <input type="text" class="form-control" data-ng-model="tarea">
+        <span class="input-group-btn">
+          <button data-ng-click="eliminarTarea($index)" aria-label="Eliminar" class="btn btn-danger">x</button>
+        </span>
+      </p>      
+    </div>
+    <!--Lista Tareas close-->
+</div> 

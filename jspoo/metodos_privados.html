@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Metodos privados</title>
+	</head>
+	<body>	
+	</body>
+	<script>
+		function Persona(dni, nombre){
+			//propiedad privada
+			var _this = this;
+			var edad = 0;
+			var edadSaludar = 1;
+
+			//propiedades publicas
+			this.dni = dni;
+			this.nombre = nombre;						
+
+			//Metodos privados
+			function envejecer(){
+				edad++;
+
+				if(edad >= edadSaludar){
+					_this.saludar('');
+				}
+			}
+
+			Persona.prototype.crecer = function(){
+				envejecer();
+			}
+
+		}		
+		//Metodo publico 
+		Persona.prototype.saludar = function(nombre){
+			console.log(this.nombre + ' te saluda ' + nombre);
+		}
+
+
+		var yo = new Persona('1', 'Marcos');
+		yo.dni = '1234567';
+		yo.saludar('Juan');
+		yo.crecer();
+
+		
+	</script>
+</html>

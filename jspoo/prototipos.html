@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Prototipos</title>
+	</head>
+	<body>	
+	</body>
+	<script>
+		function Persona(dni, nombre){
+			//propiedades publicas
+			this.dni = dni;
+			this.nombre = nombre;	
+
+			//Esta propiedad tiene prioridad sobre las propiedades del prototype
+			this.numeroManos = 1;
+		}		
+
+		//Metodo publico 
+		Persona.prototype.saludar = function(nombre){
+			console.log(this.nombre + ' te saluda ' + nombre);
+		}
+
+		var yo = new Persona('1', 'Marcos');		
+		var tu = new Persona('2', 'Gabriel');
+
+		Persona.prototype.numeroManos = 2;
+
+		Persona.prototype.prueva = function(){
+
+		}
+
+		console.log(yo);
+		console.log(tu);
+
+		yo.saludar('Juan');
+		//tu.saludar('Daniel');
+		
+		Persona.prototype.numeroManos = 3;
+
+		
+	</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html data-ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.0-rc.0/angular-route.min.js"></script>
+	<style>
+        body{
+            font-family: arial;
+        }
+        header{
+            height: 80px;
+            background: #00FF00;
+            text-align: center;
+            line-height: 50px;
+            font-size: 40px;
+        }
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            margin-top: 50px;
+        }
+        li{
+            list-style-type: none;
+            background: #000;
+            float: left;
+            height: 30px;
+            width: 25%;
+            text-align: center;
+        }
+        li a{
+            color: #fff;
+            text-decoration: none;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div data-ng-include src=" 'plantillas/encabezado.html' "></div>
+    <div data-ng-include src=" 'plantillas/menu.html' "></div>
+	<h1>visita el NG-ZOO</h1>
+
+	<script>
+		var miApp = angular.module("miApp", []);
+	</script>
+</body>
+</html>

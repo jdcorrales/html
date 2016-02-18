@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html data-ng-app="css">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<style>
+		.alerta{
+			width: 400px;
+			height: 200px;
+			line-height: 200px;
+			text-align: center;
+			font-family: monospace;
+			color: #fff;
+			background: #000;
+			font-size: 22px;
+		}
+	</style>
+</head>
+<body>
+	<div data-ng-controller="controlador1">
+		<button data-ng-click="mostrar()">Revelar msg</button>
+		<button data-ng-click="ocultar()">Ocultar msg</button>
+		<br>
+		<div class="alerta" data-ng-show="visibilidadMensaje">
+			Esto es un msg secreto
+		</div>
+	</div>
+
+	<script>
+	var miApp = angular.module("css",[]);
+
+	miApp.controller('controlador1', ['$scope', function ($scope) {
+			$scope.visibilidadMensaje = false;
+			
+			$scope.mostrar = function(){
+				$scope.visibilidadMensaje = true;
+			}
+
+			$scope.ocultar = function(){
+				$scope.visibilidadMensaje = false;	
+			}
+	}])
+	</script>
+</body>
+</html>

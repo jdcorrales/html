@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Metodos privilegiados</title>
+	</head>
+	<body>	
+	</body>
+	<script>
+		function Persona(dni, nombre){
+			//propiedad privada			
+			var edad = 0;
+			var edadSaludar = 1;
+
+			//propiedades publicas
+			this.dni = dni;
+			this.nombre = nombre;						
+
+			//metodos privilegiados
+			this.getEdad = function(){
+				return edad;
+			}
+
+			this.setEdad = function(nuevaEdad){
+				edad = nuevaEdad;
+			}
+
+			this.getEdadSaludar = function(){
+				return edadSaludar;
+			}
+		}		
+
+		//Metodo publico 
+		Persona.prototype.saludar = function(nombre){
+			console.log(this.nombre + ' te saluda ' + nombre);
+		}
+
+		Persona.prototype.crecer = function(){			
+			this.setEdad((this.getEdad()+1));		
+
+			if(this.getEdad() >= this.getEdadSaludar()){
+				this.saludar('Juanita Suarez');
+			}
+		}
+
+		var yo = new Persona('1', 'Marcos');
+		yo.dni = '1234567';
+		//yo.saludar('Juan');
+		yo.crecer();
+
+		
+	</script>
+</html>

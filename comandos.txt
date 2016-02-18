@@ -1,0 +1,18 @@
+history | grep subl
+
+
+  GAUL has been configured successfully.  In summary:
+
+  Version:                    0.1849-0
+  Source code location:       .
+  Host system type:           i686-redhat-linux-gnu
+  Target system type:         i686-redhat-linux-gnu
+  Debugging level:            0
+  C compiler:                 gcc
+  C compiler flags:           -g -O2 -Wall -mcpu=pentiumpro 
+  Additional include flags:   
+  Install path:               /usr/local
+  Use S-Lang:                 no
+  Use MPI:                    no
+  Use pthreads:               yes
+4M8CV-A5CHY-MYM3T-8FXGW-CTGKG

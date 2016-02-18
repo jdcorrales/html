@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Proiedades Estaticas</title>
+	</head>
+	<body>	
+	</body>
+	<script>
+		//Ejemplo de propiedad estatica en una clase predefinida
+		console.log(Math.PI);
+
+		function Convertidor(){
+
+		}
+		Convertidor.GRADOS_A_RADIANES = Math.PI/180;
+		Convertidor.RADIANES_A_GRADOS = 180/Math.PI;
+
+		console.log('180 grados son: '+ 180*Convertidor.GRADOS_A_RADIANES +' radaines.');
+		console.log('2PI radaines son: '+ 2*Math.PI*Convertidor.RADIANES_A_GRADOS +' grados');
+	</script>
+</html>

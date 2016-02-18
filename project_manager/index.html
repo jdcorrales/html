@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Project Manager</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/jquery-ui/themes/base/jquery.ui.all.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      html, body, .content, .panel, .panel-body, .row-fluid, .col-md-10 {
+          height: 100%;          
+      }      
+    </style>
+  </head>
+  <body>         
+
+    <div class="content">
+      <div class="row-fluid">
+        <div class="col-md-10">
+          <div class="panel panel-success" >
+            <div class="panel-heading">
+              <div class="panel-title">
+                <h4>Requisitos</h4>
+              </div>
+            </div>
+            <div class="panel-body dropzone" style="z-index: 3 !important;"></div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="panel panel-primary drag-drop" style="padding: 0px; z-index: 2 !important;">
+            <div class="panel-heading">
+              <div class="panel-title">
+                Ordenador
+              </div>
+            </div>
+
+            <div class="panel-body lpanel-body" style="height: 200px;"></div>
+          </div>
+
+          <div class="panel panel-default card_panel" style="padding: 0px; z-index: 0 !important;">
+            <div class="panel-heading" id="cpanel-heading">
+              <div class="panel-title" id="cpanel-title">ID</div>
+            </div>
+            <div class="panel-body" id="cpanel-body">------------<br>------------<br>------------<br></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </body>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/jquery-ui/ui/jquery.ui.core.js"></script>
+  <script src="js/jquery-ui/ui/jquery.ui.widget.js"></script>
+  <script src="js/jquery-ui/ui/jquery.ui.mouse.js"></script>
+  <script src="js/jquery-ui/ui/jquery.ui.draggable.js"></script>
+  <script src="js/jquery-ui/ui/jquery.ui.droppable.js"></script>
+  <script src="js/jquery-ui/ui/jquery.ui.sortable.js"></script>
+  <script src="js/jquery-ui/ui/jquery.ui.resizable.js"></script>  
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!--script src="bootstrap/js/bootstrap.min.js"></script-->
+  <script src="js/pantalla.js"></script>
+  <script src="js/requisitos.js"></script>
+  <script src="js/ordenador.js"></script>
+  <script src="js/requerimiento.js"></script>  
+
+
+  <script>
+  var pantalla = Object.create(Requisitos).init('Requisitos');
+  //pantalla.screenRequisitos();
+
+  var ordenador = Object.create(Ordenador).init('Requisitos');
+  //ordenador.screenOrdenador();
+  ordenador.dagrableOrdenador();
+
+  var requerimiento = Object.create(Requerimiento).init('Requisitos');
+  //requerimiento.screenRequerimiento();   
+  requerimiento.dagrableRequerimiento();
+  </script>
+</html>

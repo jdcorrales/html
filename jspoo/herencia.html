@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Herencia</title>
+	</head>
+	<body>	
+	</body>
+	<script>
+		function Persona(dni, nombre){
+			//propiedades publicas
+			this.dni = dni;
+			this.nombre = nombre;
+		}		
+
+		//Metodo publico 
+		Persona.prototype.saludar = function(nombre){
+			console.log( 'Hola me llamo ' + this.nombre);
+		}
+
+		function Estudiante(dni, nombre, numeroMatricula){
+			Persona.prototype.constructor.call(this, dni, nombre);
+			this.numeroMatricula = numeroMatricula;
+		}
+
+		Estudiante.prototype = new Persona();
+		Estudiante.prototype.constructor = Estudiante;
+
+		Estudiante.prototype.estudiar = function(){
+			console.log('estudiando...');
+		}
+
+		var estudiante = new Estudiante('12','Juan','234');
+		estudiante.saludar();
+		estudiante.estudiar();
+
+		console.log(estudiante.constructor);
+
+	</script>
+</html>

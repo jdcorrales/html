@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html data-ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Controlador</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body data-ng-controller="alumnoController">
+
+	{{alumno.nombre}} estudia {{alumno.curso}}
+
+
+	<script>
+		var miApp = angular.module("miApp",[]);
+
+		miApp.controller('alumnoController', ['$scope', function ($scope) {
+			$scope.alumno = {
+				nombre : "Juan",
+				curso : "3°C"
+			};
+		}]);
+		
+	</script>
+</body>
+</html>

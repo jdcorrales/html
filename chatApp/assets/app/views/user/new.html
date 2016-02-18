@@ -1,0 +1,132 @@
+<div class="col-md-4 col-md-offset-4">
+	<div class="panel panel-success">
+	  	<div class="panel-heading">
+	  		<h4>Crear Cuenta</h4>
+		</div>
+	  	<div class="panel-body">
+			<!-- SIGNUP FORM --> 
+			<form ng-submit="submitSignupForm()" id="sign-up-form" name="signup">  	
+		  	
+			    <!-- N A M E -->
+
+			    <!-- 
+			    Validas que las proiedades del campo ===> name  sean validas de lo contrario nuestra los errores 
+			    ===> $error y coloca el borde rojo en el campo    
+			    -->
+			    <div class="control-group form-group col-md-12" ng-class="{'has-error':signup.name.$invalid && signup.name.$dirty}">            
+			    	<input type="text" class="form-control" placeholder="Nombres" name="name" ng-model="signupForm.name" ng-maxlength="50" required>
+
+			    	<!-- 
+					Personalización de los mensajes de error para el campo ===> name
+			    	-->
+			      	<span class="help-block has-error" ng-if="signup.name.$dirty">
+			        	<span ng-show="signup.name.$error.required">requerido.</span>
+			        	<span ng-show="signup.name.$error.maxlength">maximo 50 caracteres .</span>
+			      	</span>
+			    </div>
+
+			    <!-- L A S T _ N A M E -->
+
+			    <!-- 
+			    Validas que las proiedades del campo ===> last_name  sean validas de lo contrario nuestra los errores 
+			    ===> $error y coloca el borde rojo en el campo    
+			    -->
+			    <div class="control-group form-group col-md-12" ng-class="{'has-error':signup.last_name.$invalid && signup.last_name.$dirty}">            
+			    	<input type="text" class="form-control" placeholder="Apellidos" name="last_name" ng-model="signupForm.last_name" ng-maxlength="50" required>
+
+			    	<!-- 
+					Personalización de los mensajes de error para el campo ===> last_name
+			    	-->
+			      	<span class="help-block has-error" ng-if="signup.last_name.$dirty">
+			        	<span ng-show="signup.last_name.$error.required">requerido.</span>
+			        	<span ng-show="signup.last_name.$error.maxlength">maximo 50 caracteres .</span>
+			      	</span>
+			    </div>
+
+			    <!-- U S E R N A M E -->
+
+			    <!-- 
+			    Validas que las proiedades del campo ===> username  sean validas de lo contrario nuestra los errores 
+			    ===> $error y coloca el borde rojo en el campo    
+			    -->
+			    <div class="control-group form-group col-md-12" ng-class="{'has-error':signup.username.$invalid && signup.username.$dirty}">            
+			    	<input type="text" class="form-control" placeholder="Nombre de usuario" name="username" ng-model="signupForm.username" ng-maxlength="10" required>
+
+			    	<!-- 
+					Personalización de los mensajes de error para el campo ===> username
+			    	-->
+			      	<span class="help-block has-error" ng-if="signup.username.$dirty">
+			        	<span ng-show="signup.username.$error.required">requerido.</span>
+			        	<span ng-show="signup.username.$error.maxlength">maximo 10 caracteres .</span>
+			      	</span>
+			    </div>    
+
+			    <!-- E M A I L -->
+
+				<!-- 
+			    Validas que las proiedades del campo ===> email  sean validas de lo contrario nuestra los errores 
+			    ===> $error y coloca el borde rojo en el campo    
+			    -->
+			    <div class="control-group form-group col-md-12" ng-class="{'has-error':signup.email.$invalid && signup.email.$dirty}">      
+			    	<input type="email" class="form-control" placeholder="E-mail" name="email" ng-model="signupForm.email" required >
+
+			    	<!-- 
+					Personalización de los mensajes de error para el campo ===> username
+			    	-->
+			      	<span class="help-block has-error" ng-if="signup.email.$dirty">
+			        	<span ng-show="signup.email.$error.required">requerido.</span>
+			        	<span ng-show="signup.email.$error.email">e-mail rederido.</span>
+			      	</span>
+			    </div>
+
+			    <!-- P A S S W O R D -->
+
+				<!-- 
+			    Validas que las proiedades del campo ===> password  sean validas de lo contrario nuestra los errores 
+			    ===> $error y coloca el borde rojo en el campo    
+			    -->
+			    <div class="control-group form-group col-md-5" ng-class="{'has-error':signup.password.$invalid && signup.password.$dirty}">
+			      
+			    	<!-- 		
+					Añade la directiva compareTo para comparar el campo ===> password con el campo ===> confirmation
+			    	-->      
+			     	<input type="password" class="form-control" placeholder="Password" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" >
+
+			     	<!-- 
+					Personalización de los mensajes de error para el campo ===> password		
+			    	-->
+			      	<span class="help-block has-error" ng-if="signup.password.$dirty">
+			        	<span ng-show="signup.password.$error.required">requerido.</span>
+			        	<span ng-show="signup.password.$error.minlength">maximo 6 caracteres.</span>
+			      	</span>
+			    </div>
+
+			    <!-- C O N F I R M  P A S S W O R D -->
+
+				<!-- 
+			    Validas que las proiedades del campo ===> confirmation  sean validas de lo contrario nuestra los errores 
+			    ===> $error y coloca el borde rojo en el campo    
+			    -->
+			    <div class="control-group form-group col-md-7" ng-class="{'has-error':signup.confirmation.$invalid && signup.confirmation.$dirty}">      
+			    	<input type="password" class="form-control" placeholder="Confirmar password" name="confirmation" ng-model="signupForm.confirmPassword" required>
+			      	
+			      	<!-- 
+					Personalización de los mensajes de error para el campo ===> confirmation		
+			    	-->
+			      	<span class="help-block has-error" ng-if="signup.confirmation.$dirty">
+			        	<span ng-show="signup.confirmation.$error.required">requerido.</span>
+			        	<span ng-show="signup.password.$error.compareTo">la confirmación del password no coincide</span>
+			      	</span>
+			    </div>  	
+
+				<!-- Desactiva el boton de submit si hay un error en la validacion de los formularios -->
+				<button class="btn btn-primary btn-block" type="submit" ng-disabled="signup.$invalid">
+					<span ng-show="signup.$invalid">Diligencie el formulario</span>
+				    <span class="overlord-loading-spinner fa fa-spinner" ng-show="form.loading" ></span>
+				    <span ng-show="!signup.$invalid">Crear</span>
+				</button>
+			</form>			
+	  	</div>
+	</div>	
+</div>
+

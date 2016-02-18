@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html data-ng-app><!-- ng-app es una direcctiva de angular JS la cual inicializa el proyecto-->
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<label>Nombre:</label>
+	<input type="text" data-ng-model="nombre">
+
+	<div class="tarjeta">
+		<h2>Mi nombre es:</h2>
+		<h1>{{nombre | lowercase}}</h1>
+	</div>
+</body>
+</html>

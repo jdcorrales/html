@@ -1,0 +1,40 @@
+/**
+* app.js
+* Configuración para el uso de socket's usando sails.io.js
+*/
+
+// Conecta automaticamenta el socket cuando se carga el archivo
+var socket = io.sails.connect();
+
+if (typeof console !== 'undefined') {
+	console.log('Conectando con sails.js');
+}
+
+socket.on('connect', function socketConnected() {
+	//Escuchar los mensages provenientes de los controladores
+	socket.on('user', function messageReceived (message) { 
+		//////////////////////////////////////////////
+		// Aquí va la logica de respuesta al mensage
+		// recivido
+		/////////////////////////////////////////////
+		console.log('Nuevo mensage :', message);
+	});
+
+	// Subscribe el modelo ---> User instanciandolo por 
+	// peticion GET haciendo el llamado al metodo 
+	// ---> user/subscribe
+	socket.get('/user/subscribe');
+
+	////////////////////////////////////////////////
+	// Logica personalizada cuando se establesca la 
+	// conexión del socket con el servidor
+	///////////////////////////////////////////////
+
+	console.log(
+		'Acceder globalmente a la coneccion por petición GET ' +
+		'socket.get("/", function (response)  { ' +
+		'console.log("response");' +
+		'})'
+	);
+});
+

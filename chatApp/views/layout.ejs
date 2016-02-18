@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Sails App</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/lib/angular-ui-notification/dist/angular-ui-notification.css">
+    <link rel="stylesheet" href="/lib/angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <!--STYLES END-->
+  </head>
+
+  <body data-ng-app="managerProjectApp">         
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" data-ng-controller="UserController"> 
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/#!">Manager Project</a>
+      </div>
+    
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav" data-ng-show="session.authenticated">
+          <li class="active"><a href="/#!/user/{{session.id}}">{{session.username}}</a></li>
+          <li data-ng-show="session.role"><a href="/#!/user">Administrador</a></li>
+        </ul>
+        <div data-ng-controller="SessionController">
+          <form action="/session" method="POST" class="navbar-form navbar-right" name="signin" data-ng-show="!session.authenticated" data-ng-submit="submitSinginForm()">
+            
+            <!-- U S E R N A M E -->
+
+            <!-- 
+            Validas que las proiedades del campo ===> username  sean validas de lo contrario nuestra los errores 
+            ===> $error y coloca el borde rojo en el campo    
+            -->
+            <div class="form-group" ng-class="{'has-error':signin.username.$invalid && signin.username.$dirty}">            
+              <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" ng-model="sessionForm.username" ng-maxlength="10" required>
+
+              <!-- 
+            Personalización de los mensajes de error para el campo ===> username
+              -->
+                <span class="help-block has-error" ng-if="signin.username.$dirty">
+                  <span ng-show="signin.username.$error.required">requerido.</span>
+                  <span ng-show="signin.username.$error.maxlength">maximo 10 caracteres .</span>
+                </span>
+            </div>    
+
+            <!-- P A S S W O R D -->
+
+          <!-- 
+            Validas que las proiedades del campo ===> password  sean validas de lo contrario nuestra los errores 
+            ===> $error y coloca el borde rojo en el campo    
+            -->
+            <div class="form-group" ng-class="{'has-error':signin.password.$invalid && signin.password.$dirty}">
+              
+              <!--    
+            Añade la directiva compareTo para comparar el campo ===> password con el campo ===> confirmation
+              -->      
+              <input type="password" class="form-control" placeholder="Password" name="password" ng-model="sessionForm.password" id="password" required ng-minlength="6">
+
+              <!-- 
+            Personalización de los mensajes de error para el campo ===> password    
+              -->
+                <span class="help-block has-error" ng-if="signin.password.$dirty">
+                  <span ng-show="signin.password.$error.required">requerido.</span>
+                  <span ng-show="signin.password.$error.minlength">maximo 6 caracteres.</span>
+                </span>
+            </div>
+            <!-- Desactiva el boton de submit si hay un error en la validacion de los formularios -->
+            <div class="form-group">            
+              <button class="btn btn-success" type="submit" ng-disabled="signin.$invalid">
+                <span ng-show="signin.$invalid">¿Tienes cuenta?</span>
+                  <span class="overlord-loading-spinner fa fa-spinner" ng-show="form.loading" ></span>
+                  <input type="hidden" name="_csrf" value="<%= _csrf %>">
+                  <span ng-show="!signin.$invalid">Ingresar</span>
+              </button>
+            </div>
+          </form>
+          <a href="/session" class="btn btn-warning navbar-right" data-ng-show="session.authenticated" style="margin-top: 8px; margin-right: 46px;">Salir</a >
+        </div>
+      </div><!-- /.navbar-collapse -->      
+    </nav>
+
+    <%- body %>
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+      
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+          
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular-route/angular-route.js"></script>
+    <script src="/lib/angular-resource/angular-resource.js"></script>
+    <script src="/lib/angular-ui-notification/dist/angular-ui-notification.js"></script>
+    <script src="/lib/angular-toastr/dist/angular-toastr.js"></script>
+    <script src="/app/modules/CompareToModule.js"></script>
+    <script src="/app/modules/CsrfModule.js"></script>
+    <script src="/app/modules/SessionModule.js"></script>
+    <script src="/app/modules/UserModule.js"></script>
+    <script src="/app/directives/CompareToDirective.js"></script>
+    <script src="/app/controllers/SessionController.js"></script>
+    <script src="/app/controllers/UserController.js"></script>
+    <script src="/app/routes/UserRoute.js"></script>
+    <script src="/app/services/CsrfService.js"></script>
+    <script src="/app/services/SessionService.js"></script>
+    <script src="/app.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>

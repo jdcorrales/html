@@ -1,0 +1,22 @@
+{
+  "name": "chatapp",
+  "private": true,
+  "version": "0.1.0",
+  "author": "jdcorrales",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "angular": "~1.4.9",
+    "angular-route": "^1.4.9",
+    "angular-resource": "^1.4.9",
+    "jquery-validation": "^1.14.0",
+    "angular-toastr": "^1.7.0",
+    "angular-ui-notification": "^0.1.0"
+  }
+}

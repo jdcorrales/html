@@ -1,0 +1,30 @@
+<form action="/user/update" method="POST" class="form-singin">
+	<div class="form-group">
+		<legend>Editar datos de usuario</legend>
+	</div>		
+
+	<% if (flash && flash.err) { %>
+		<ul class="alert alert-warning">
+		<% Object.keys(flash.err).forEach(function (error) { %>				
+			<li><%- JSON.stringify(flash.err[error]) %></li>
+		<% }); %>		
+		</ul>
+	<% } %>		
+	
+	<input type ="text" class="form-control" name="name" value="<%= user.name %>" placeholder="Nombre Completo">
+	<input type ="text" class="form-control" name="last_name" value="<%= user.last_name %>" placeholder="Apellidos">
+	<input type ="text" class="form-control" name="username" value="<%= user.username %>" placeholder="Nombre de usuario">
+	<input type ="text" class="form-control" name="email" value="<%= user.email %>" placeholder="E-mail">
+<% if (session.authenticated && session.User.role) { %>
+	<% if (user.role) { %>		
+		<label><input type="checkbox" id="roleControl" checked>Admin</label>
+	<% } else { %>	
+		<label><input type="checkbox" id="roleControl">Admin</label>
+	<% } %>
+<% } %>
+	<input type="hidden" name="_csrf" value="<%= _csrf %>">
+	<input type="hidden" name="id" value="<%= user.id %>">
+	<input type="hidden" name="role" id="role">
+	
+	<button type="submit" class="btn btn-primary btn-block btn-xs">Editar</button>
+</form>

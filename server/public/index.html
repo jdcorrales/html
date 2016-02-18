@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html data-ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Cuaderno Alumnos</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-ng-controller="AlumnosController">
+	<h1>Cuaderno Alumnos</h1>
+
+	<div class="wrapper">
+		<div class="contact-item" data-ng-repeat="alumno in alumnos | orderBy:'nombre'">
+			<div>{{alumno.nombre}} - {{alumno.telefono}}</div>
+			<span>{{alumno.curso}}</span>
+		</div>
+	</div>
+	<br>
+	<center>
+		<button data-ng-click="showForm()" data-ng-hide="formVisibility">A&ntilde;adir contacto</button>
+	</center>
+	<div class="wrapper" data-ng-show="formVisibility">
+		<h2>A&ntilde;adir un Contacto</h2>
+		Nombre: <input type="text" data-ng-model="nuevoAlumno.nombre" />
+		<br>
+		Telefono: <input type="text" data-ng-model="nuevoAlumno.telefono" />
+		<br>
+		Curso: <input type="text" data-ng-model="nuevoAlumno.curso" />
+		<br>
+		<button data-ng-click="Save()">Guardar</button>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="js/alumnos.js"></script>
+</body>
+</html>

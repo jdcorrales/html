@@ -1,0 +1,15 @@
+'use strict';
+/**
+* Chat Routes
+*
+* Description
+*/
+angular.module('ChatModule').config(['$routeProvider',
+	function ($routeProvider) {
+		$routeProvider
+		.when('/', {
+			templateUrl: '/app/views/chat/view.html',
+			controller: 'ChatController'
+		});
+	}
+]);

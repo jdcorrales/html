@@ -1,0 +1,47 @@
+<div class="container" data-ng-init="getUserAll()">	
+	<h3>Usuarios</h3>
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th></th>
+					<th>ID</th>
+					<th>Nombres</th>
+					<th>Apellidos</th>
+					<th>Usuario</th>
+					<th>E-mail</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody data-ng-repeat="(i, user) in users">
+				<tr data-id="{{user.id}}" data-model="user">				
+					<td data-ng-show="user.online">
+						<span class="glyphicon glyphicon-ok-sign text-success" aria-hidden="true"></span>
+					</td>				
+					<td data-ng-show="!user.online">
+						<span class="glyphicon glyphicon-remove-sign text-danger" aria-hidden="true"></span>
+					</td>				
+					<td>{{user.id}}</td>
+					<td>{{user.name}}</td>
+					<td>{{user.last_name}}</td>
+					<td>{{user.username}}</td>
+					<td>{{user.email}}</td>			
+					<td data-ng-show="user.role">
+						<span class="glyphicon glyphicon-king" aria-hidden="true"></span>
+					</td>				
+					<td data-ng-show="!user.role">
+						<span class="glyphicon glyphicon-pawn" aria-hidden="true"></span>
+					</td>				
+					<td><a href="/#!/user/{{user.id}}" class="btn btn-xs btn-primary" >Ver</a></td>
+					<td><a href="/#!/user/edit/{{user.id}}" class="btn btn-xs btn-warning" >Editar</a></td>	
+					<td>					
+						<!--button class="btn btn-xs btn-danger" data-ng-click="destroyUser(user.id)">Eliminar</button-->
+					</td>
+				</tr>			
+			</tbody>
+		</table>
+	</div>
+</div>

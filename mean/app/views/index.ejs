@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title %></title>
+</head>
+<body>
+	<!--Si un usuario es autentificado, mostrar el nombre completo del usuario, de no ser asi-->
+	<% if (userFullName) { %>
+		<h2>Hola <%= userFullName %></h2>
+		<a href="/signout">Cerrar Sesión</a>
+	<% } else { %>
+		<a href="/signup">Crear cuenta</a>
+		<a href="/signin">Identificarse</a>
+	<% } %>	
+
+	<section>
+		<input type="text" id="text1" data-ng-model="name">
+		<input type="text" id="text2" data-ng-model="name">
+	</section>
+
+	<script src="/lib/angular/angular.js"></script>
+	<script src="/application.js"></script>
+</body>
+</html>

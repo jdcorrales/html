@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>managerProject</title>
+
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+	
+	<section data-ng-view></section>
+	<script>
+		window.user = <%= JSON.stringify(user) || 'null'%>;
+	</script>
+	
+	<script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/angular-route/angular-route.js"></script>
+    <script src="/app/modules/module.js"></script>
+    <script src="/app/controllers/client.js"></script>
+    <script src="/app/config/routes.js"></script>
+    <script src="/app/modules/user.js"></script>
+    <script src="/app/services/user.authentication.js"></script>    
+    <script src="/application.js"></script>    
+</body>
+</html>

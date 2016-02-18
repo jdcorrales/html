@@ -1,0 +1,40 @@
+$('.dropzone').sortable({
+			    connectWith: '.dropzone',
+			    cursor: 'move'
+			}).droppable({
+			    accept: '.col-md-2 #lpanel',
+			    activeClass: 'highlight',
+			    drop: function(event, ui) {
+
+			    	var posX = ui.offset.left - $(this).offset().left;
+        			var posY = ui.offset.top - $(this).offset().top;	               	
+			        var clone = $(ui.draggable).clone();	                
+
+	                clone.css("width", "387px");
+	                clone.css("height", "193px");
+	                clone.css({top: posY, left: posX});
+	                $(clone).find(".panel-body").addClass('ordenador');
+	                $(clone).find(".panel-body").css('padding','0px');
+	          		clone.draggable({ containment: 'parent' ,cursor: 'crosshair', tolerance: 'fit', containment: '.dropzone'});
+
+	          		$(clone).find("#lpanel-body").sortable({
+					    connectWith: '#lpanel-body',
+					    cursor: 'move'
+					}).droppable({
+	          			accept: '.col-md-2 #card_panel',	    
+					    drop: function(event, ui) {					    				    	
+					    	
+					        var clone2 = $(ui.draggable).clone();		        
+
+			                clone2.css("position", "relative");
+			                clone2.css("width", "287px");
+			                clone2.css("height", "93px");
+			          		clone2.draggable({ containment: 'parent' ,cursor: 'crosshair', tolerance: 'fit', containment: '.ordenador'});
+			          		$(this).append(clone2);
+				        }
+				    });
+
+
+	          		$(this).append(clone);
+		        }
+			});

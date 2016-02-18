@@ -1,0 +1,92 @@
+<div class="col-md-4 col-md-offset-4" data-ng-init="getUserId()">
+	<div class="panel panel-success">
+	  	<div class="panel-heading">
+	  		<h4>Editar datos de Usuario</h4>
+		</div>
+	  	<div class="panel-body">
+			<!-- SIGNUP FORM --> 
+			<form ng-submit="updateUser()" id="sign-up-form" name="userEdit">  	
+		  	
+			    <!-- N A M E -->
+
+			    <!-- 
+			    Validas que las proiedades del campo ===> name  sean validas de lo contrario nuestra los errores 
+			    ===> $error y coloca el borde rojo en el campo    
+			    -->
+			    <div class="control-group form-group col-md-12" ng-class="{'has-error':userEdit.name.$invalid && userEdit.name.$dirty}">            
+			    	<input type="text" class="form-control" placeholder="Nombres" name="name" ng-model="user.name" ng-maxlength="50" required>
+
+			    	<!-- 
+					Personalización de los mensajes de error para el campo ===> name
+			    	-->
+			      	<span class="help-block has-error" ng-if="userEdit.name.$dirty">
+			        	<span ng-show="userEdit.name.$error.required">requerido.</span>
+			        	<span ng-show="userEdit.name.$error.maxlength">maximo 50 caracteres .</span>
+			      	</span>
+			    </div>
+
+			    <!-- L A S T _ N A M E -->
+
+			    <!-- 
+			    Validas que las proiedades del campo ===> last_name  sean validas de lo contrario nuestra los errores 
+			    ===> $error y coloca el borde rojo en el campo    
+			    -->
+			    <div class="control-group form-group col-md-12" ng-class="{'has-error':userEdit.last_name.$invalid && userEdit.last_name.$dirty}">            
+			    	<input type="text" class="form-control" placeholder="Apellidos" name="last_name" ng-model="user.last_name" ng-maxlength="50" required>
+
+			    	<!-- 
+					Personalización de los mensajes de error para el campo ===> last_name
+			    	-->
+			      	<span class="help-block has-error" ng-if="userEdit.last_name.$dirty">
+			        	<span ng-show="userEdit.last_name.$error.required">requerido.</span>
+			        	<span ng-show="userEdit.last_name.$error.maxlength">maximo 50 caracteres .</span>
+			      	</span>
+			    </div>
+
+			    <!-- U S E R N A M E -->
+
+			    <!-- 
+			    Validas que las proiedades del campo ===> username  sean validas de lo contrario nuestra los errores 
+			    ===> $error y coloca el borde rojo en el campo    
+			    -->
+			    <div class="control-group form-group col-md-12" ng-class="{'has-error':userEdit.username.$invalid && userEdit.username.$dirty}">            
+			    	<input type="text" class="form-control" placeholder="Nombre de usuario" name="username" ng-model="user.username" ng-maxlength="10" required>
+
+			    	<!-- 
+					Personalización de los mensajes de error para el campo ===> username
+			    	-->
+			      	<span class="help-block has-error" ng-if="userEdit.username.$dirty">
+			        	<span ng-show="userEdit.username.$error.required">requerido.</span>
+			        	<span ng-show="userEdit.username.$error.maxlength">maximo 10 caracteres .</span>
+			      	</span>
+			    </div>    
+
+			    <!-- E M A I L -->
+
+				<!-- 
+			    Validas que las proiedades del campo ===> email  sean validas de lo contrario nuestra los errores 
+			    ===> $error y coloca el borde rojo en el campo    
+			    -->
+			    <div class="control-group form-group col-md-12" ng-class="{'has-error':userEdit.email.$invalid && userEdit.email.$dirty}">      
+			    	<input type="email" class="form-control" placeholder="E-mail" name="email" ng-model="user.email" required >
+
+			    	<!-- 
+					Personalización de los mensajes de error para el campo ===> username
+			    	-->
+			      	<span class="help-block has-error" ng-if="userEdit.email.$dirty">
+			        	<span ng-show="userEdit.email.$error.required">requerido.</span>
+			        	<span ng-show="userEdit.email.$error.email">e-mail rederido.</span>
+			      	</span>
+			    </div>			     	
+
+				<!-- Desactiva el boton de submit si hay un error en la validacion de los formularios -->
+				<button class="btn btn-primary btn-block" type="submit" ng-disabled="userEdit.$invalid">
+					<span ng-show="userEdit.$invalid">Diligencie el formulario</span>
+				    <span class="overlord-loading-spinner fa fa-spinner" ng-show="form.loading" ></span>
+				    <span ng-show="!userEdit.$invalid">Editar</span>
+				</button>
+			</form>			
+	  	</div>
+	</div>	
+</div>
+

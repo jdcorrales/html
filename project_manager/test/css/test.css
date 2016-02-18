@@ -1,0 +1,79 @@
+/*---------------MainContent------------*/
+
+
+
+#amounts, #categories, .descriptionWrap {
+width: 100%;
+float: left;
+}
+
+.ui-widget-content {
+    background-image: none;
+    background-color: #cc0000;
+    color: #fff;
+    text-align: center;
+    font-size: 2em;
+    line-height: 2em;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+ .description .droppable, .description .ui-droppable {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-color: #ddd;
+    float: left;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #333;
+    border: 3px dotted green;
+    font-weight: 600;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 2em;
+    text-align: center;
+}
+
+ .ui-widget-content, .draggable, .ui-draggable {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 11px;
+    border-radius: 50%;
+}
+
+.description {
+width: 150px;
+margin: 20px;
+float: left;
+}
+
+.runningTotal {
+float: none;
+width: 100%;
+background-color: #ccc;
+height: 30px;
+}
+
+#totalWrap {
+float: left;
+width: 20%;
+margin: 0 0 10px 25px;
+font-size: 2em;
+}
+
+#totalText, #counter {
+float: left;
+}
+
+.mini {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #cc0000;
+    font-size: .5em;
+    color: #ffffff;
+    margin: 0;
+    display: inline;
+    position: relative;
+}

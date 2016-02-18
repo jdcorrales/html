@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html data-ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	
+	<div data-ng-controller="circunferencia">
+		<label>Diamentro</label>
+		<input type="text" data-ng-model="diametro">
+		<button data-ng-click="calcularCircunferencia()">Calcular</button>
+		<br>
+		{{circunferencia}}
+	</div>
+
+	<script>
+	var miApp = angular.module('miApp',[]);
+
+	miApp.controller('circunferencia', ['$scope', function ($scope) {
+		
+		var pi = 3.14;
+
+		$scope.calcularCircunferencia = function(){
+			$scope.circunferencia = $scope.diametro * pi;
+		}
+	}])
+	</script>
+</body>
+</html>

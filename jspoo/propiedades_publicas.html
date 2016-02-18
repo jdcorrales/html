@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Propiedades publicas</title>
+</head>
+<body>	
+</body>
+<script>
+	function Persona(dni, nombre){
+		this.dni = dni;
+		this.nombre = nombre;
+	}
+
+	var yo = new Persona('1234567', 'Marcos');
+	var tu = new Persona();
+
+	tu['nombre'] = 'Otro';
+
+	console.log(yo);
+	console.log(tu);
+</script>
+</html>

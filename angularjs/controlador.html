@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html data-ng-app="tiendaFrutas">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<div data-ng-controller="controlador1">
+		<h1>!Promoci&oacute;n de mangos¡</h1>
+		<h2>$2.15 cada uno</h2>
+
+		<label>Cantidad de mangos:</label>
+		<input type="text" data-ng-model="cantidad">
+		<br>
+		Precio Total: {{cantidad * precio | currency}}
+	</div>
+	<script>
+	var miAplicacion = angular.module('tiendaFrutas',[]);
+
+	miAplicacion.controller('controlador1', ['$scope', function ($scope) {
+		$scope.cantidad = 0;
+		$scope.precio = 2.15;
+	}]);
+	</script>
+</body>
+</html>

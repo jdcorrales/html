@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tipos de objetos en javascript</title>
+
+		<!--Styles-->
+		<link rel="stylesheet" type="htt://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" type="txt/css">
+
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		//Objetos asiciados a los tipos primitivos
+		var cadena = 'Esto es una cadena';
+		var cadena_obj = new String('Esto es una cadena2');
+		console.log(cadena);
+		console.log(cadena_obj);
+
+		var numero = 12;
+		var numero_obj = new Number(13);
+		console.log(numero);
+		console.log(numero_obj);
+
+		var logico = true;
+		var logico_obj = new Boolean(false);
+		console.log(logico);
+		console.log(logico_obj);
+
+		//Objetos compuestos
+		var lista = ['0','1','2','3','4'];
+		var lista_obj = new Array('0','1','2','3');
+		console.log(lista);
+		console.log(lista_obj);
+
+		var objeto_literal = {nombre: 'pedro', edad: 30};
+		var objeto_constructor = new Object();
+		objeto_constructor.nombre = 'pedros';
+		objeto_constructor.edad = 31;
+		console.log(objeto_literal);
+		console.log(objeto_constructor);
+
+		//objetos predefinidos del lenguaje
+		var hora = new Date();
+		console.log(hora);
+		console.log(Math);
+
+		//objetos definidos por el usuario
+	</script>
+</html>
